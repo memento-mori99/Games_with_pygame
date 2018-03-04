@@ -59,6 +59,24 @@ def crash():
     message_display("You crashed!")
 
 
+def game_intro():
+
+    intro = True
+    while intro:
+        for event in pygame.event.get():
+            print(event)
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit
+        gameDisplay.fill(block_color2)
+        largeText = pygame.font.Font("freesansbold.ttf", 115)
+        TextSurf, TextRect = text_objects("Welcome !", largeText)
+        TextRect.center = ((display_width/2.0), (display_height/2.0))
+        gameDisplay.blit(TextSurf, TextRect)
+        pygame.display.update()
+        clock.tick(15)
+
+
 def game_loop():
     x = (display_width * 0.45)
     y = (display_height * 0.80)
@@ -91,6 +109,7 @@ def game_loop():
         gameDisplay.fill(brown)
         # things(thingx, thingy, thingw, thingh, color):
         things(thing_startx, thing_starty, thing_width, thing_height, block_color)
+
         thing_starty += thing_speed
         car(x, y)
         things_dodged(dodged)
@@ -105,6 +124,10 @@ def game_loop():
             #     thing_speed += 1
             # thing_speed +=1              # These are to make the game a bit harder
             # thing_width += (dodged * 1.2)  # These are to make the game a bit harder
+            thing_count += 1
+
+            for thing in range(thing_count):
+                print(thing)
 
         if y < thing_starty + thing_height:
             print('y cross over')
@@ -116,6 +139,7 @@ def game_loop():
         clock.tick(60)
 
 
+game_intro()
 game_loop()
 pygame.quit()
 quit()
