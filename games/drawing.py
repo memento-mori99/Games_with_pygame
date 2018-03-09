@@ -21,7 +21,7 @@ pygame.draw.line(gameDisplay, blue, (100, 200), (300, 450), 5)  # Draw a line
 
 # Parameters -> (Surface, color, (Top_left_coordinates_x,Top_left_coordinates_y, width of rectangle, height of rectangle ))
 pygame.draw.rect(gameDisplay, green, (400, 400, 50, 25))
-
+pygame.draw.rect(gameDisplay, cyan, (600, 600, 50, 25))
 # Specify center of the circle, radius of the circle, width of the circle
 pygame.draw.circle(gameDisplay, cyan, (150, 150), 75)
 

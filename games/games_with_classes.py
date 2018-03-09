@@ -3,7 +3,9 @@ import math
 import time
 
 pygame.init
-
+'''
+This is just to learn OOP in a fun way 
+'''
 white = (255, 255, 255)
 black = (0, 0, 0)
 red = (255, 0, 0)
