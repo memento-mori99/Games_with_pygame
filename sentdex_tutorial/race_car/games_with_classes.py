@@ -2,7 +2,6 @@ import pygame
 import math
 import time
 
-pygame.init
 '''
 This is just to learn OOP in a fun way 
 '''
@@ -13,9 +12,11 @@ green = (0, 255, 0)
 blue = (0, 0, 255)
 cyan = (55, 255, 250)
 purple = (196, 55, 255)
+grey = (128, 128, 128)
 
+pygame.init
 gameDisplay = pygame.display.set_mode((800, 600))
-gameDisplay.fill(black)
+gameDisplay.fill(grey)
 
 
 class Shapes(object):
@@ -28,7 +29,8 @@ class Shapes(object):
         self.start_tuple = start_tuple
         self.end_tuple = end_tuple
         self.width = width
-        pygame.draw.line(gameDisplay, self.color, self.start_tuple, self.end_tuple, width)
+        pygame.draw.line(gameDisplay, self.color,
+                         self.start_tuple, self.end_tuple, width)
 
 
 Triangle = Shapes(blue)
