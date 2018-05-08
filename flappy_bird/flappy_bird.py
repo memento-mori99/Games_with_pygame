@@ -1,9 +1,8 @@
 import pygame
+from pygame.locals import *
 import os
 import sys
-from pygame.locals import *
 import math
-import time
 import random
 
 pygame.init()
@@ -18,11 +17,11 @@ BLACK = pygame.Color(0, 0, 0)
 while True:
     main_surface.blit()
 
-    # draw xx
+    # draw something
 
-    # draw
+    # draw something
 
-    # draw
+    # draw something
 
     for event in pygame.event.get():
         if event.type == QUIT:
@@ -30,3 +29,9 @@ while True:
             sys.exit()
 
     # main game logic
+
+    pygame.display.update()  # pygame.display.flip()
+    clock.tick(60)  # 60 frames
+
+pygame.quit()
+quit()
