@@ -8,10 +8,10 @@
 Windows : pip install pygame
 ```
 ## Racing
-![Racing]("C:\programming\python\programs\games_with_pygame\sentdex_tutorial\race_car\example.PNG")
+![Racing]("sentdex_tutorial\race_car\example.PNG")
 
 ## Bricks
-![Bricks]("C:\programming\python\programs\games_with_pygame\pythonPygameRasperryPiGameDevelopment\bricks_by_me\bricks_example.PNG")
+![Bricks]("pythonPygameRasperryPiGameDevelopment\bricks_by_me\bricks_example.PNG")
 
 ## Pygame crash course
 Welcome to a quick pygame crash course. Firstly, Install pygame.
