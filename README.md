@@ -8,10 +8,10 @@
 Windows : pip install pygame
 ```
 ## Racing
-![Racing]("https://github.com/shankar-shiv/Games_with_pygame/blob/master/sentdex_tutorial/race_car/example.PNG")
+![alt text]("https://github.com/shankar-shiv/Games_with_pygame/blob/master/sentdex_tutorial/race_car/example.PNG")
 
 ## Bricks
-![Bricks]("https://github.com/shankar-shiv/Games_with_pygame/blob/master/pythonPygameRasperryPiGameDevelopment/bricks_by_me/bricks_example.PNG")
+![alt text]("https://github.com/shankar-shiv/Games_with_pygame/blob/master/pythonPygameRasperryPiGameDevelopment/bricks_by_me/bricks_example.PNG")
 
 ## Pygame crash course
 Welcome to a quick pygame crash course. Firstly, Install pygame.
