@@ -8,7 +8,7 @@
 Windows : pip install pygame
 ```
 ## Racing
-![Racing](https://github.com/shankar-shiv/Games_with_pygame/blob/master/sentiment_index_tutorial/race_car/example.PNG "racing game picture")
+![Racing](https://github.com/shankar-shiv/Games_with_pygame/blob/master/sentiment_index_tutorial/race_car/example_picture.PNG "racing game picture")
 
 ## Bricks
 ![Bricks](https://github.com/shankar-shiv/Games_with_pygame/blob/master/pythonPygameRasperryPiGameDevelopment/bricks_by_me/bricks_example.PNG "bricks game picture")
