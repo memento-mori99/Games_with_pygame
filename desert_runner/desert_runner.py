@@ -6,10 +6,25 @@ import math
 import time
 import random
 
+# Initilisation of all pygame components
 pygame.init()
 
 display_width = 800
 display_height = 600
+
+# ===== colour variable = (red, green, blue) ====
+black = (0, 0, 0)
+white = (255, 255, 255)
+red = (255, 0, 0)
+green = (0, 255, 0)
+blue = (0, 0, 255)
+brown = (150, 65, 0)
+block_color = (0, 128, 0)
+bright_red = (255, 0, 0)
+bright_green = (0, 255, 0)
+bright_blue = (0, 0, 255)
+light_red = (200, 0, 0)
+light_green = (0, 200, 0)
 
 fpsClock = pygame.time.Clock()
 pygame.display.set_caption('Desert_runner')
@@ -40,8 +55,8 @@ def grass_block(x, y):
 
 def things_dodged(count):
     font = pygame.font.SysFont(None, 30)
-    text = font.render("Dodged: " + str(count), True, black)
-    gameDisplay.blit(text, (0, 0))
+    text = font.render("Dodged: " + str(count), True, blue)
+    surface.blit(text, (0, 0))
 
 
 grass_x = random.randrange(0, display_width + 100)
@@ -51,11 +66,13 @@ grass_x -= grass_block_speed
 y_change = 0
 crashed = False
 while not crashed:
-    
+
     surface.blit(desert_background, (0, 0))
     skeleton(skeleton_x, skeleton_y)
     grass_block(grass_x, grass_y)
     grass_x = random.randrange(0, display_width + 100)
+    things_dodged(12)
+
     for event in pygame.event.get():
         if event.type == QUIT:
             pygame.quit()
