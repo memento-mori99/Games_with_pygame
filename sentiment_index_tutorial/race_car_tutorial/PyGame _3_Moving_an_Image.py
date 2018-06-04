@@ -16,7 +16,7 @@ GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 YELLOW = (255, 255, 0)
 CYAN = (0, 255, 255)
-BROWN = (83 , 91, 36)
+BROWN = (83, 91, 36)
 
 game_Display = pygame.display.set_mode((display_width, display_height))
 
@@ -44,13 +44,30 @@ def car(x, y):
 x = (display_width * 0.45)
 y = (display_height * 0.70)
 
+x_change = 0
+
 crashed = False
 while not crashed:
+
+    # This is your event handling loop and you might have a logic loop.
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             crashed = True
 
-       # print(event)
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                x_change -= 5
+            elif event.key == pygame.K_RIGHT:
+                x_change += 5
+
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT:
+                x_change += 5
+            elif event.key == pygame.K_RIGHT:
+                x_change += -5
+        print(event)
+
+    x += x_change
 
     game_Display.fill(BROWN)
     car(x, y)
@@ -63,13 +80,6 @@ pygame.quit()
 quit()
 
 ##############################################################################
-# In this tutorial, we will learn how to load up an image and use it dynamically.
-# We will also learn how to draw things and manipulate them.
-# Make a picture have a transparent background.
-
-# Nothing in games actually move, it's just redrawing of frames slightly in the
-# background, you just change the position of the sprite like a flipbook.
-# Nothing is actually moving it just gives you the impression it is moving
-# Frames are just being refreshed for every 30 / 60 frames / second
+# In this tutorial, We will be avoiding objects and swerve left and right.
 #
 #
