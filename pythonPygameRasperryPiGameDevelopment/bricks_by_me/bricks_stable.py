@@ -48,7 +48,8 @@ for y in range(5):
         # print(brick.get_height())
         # print(list(bricks))
         # print(bricks[0][0])
-        bricks.append(Rect(brick_x, brick_y, brick.get_width(), brick.get_height()))
+        bricks.append(
+            Rect(brick_x, brick_y, brick.get_width(), brick.get_height()))
 
 
 while True:
@@ -137,4 +138,4 @@ while True:
                 bricks.remove(b)
 
     pygame.display.update()
-    fpsClock.tick(30)
+    fpsClock.tick(60)

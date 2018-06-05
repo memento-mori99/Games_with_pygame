@@ -32,17 +32,36 @@ from pygame.locals import *
 class Ball():
     # A class is defined using the class keyword.
     def __init__(self):
-        self.x = 0
-        self.y = 24
+        # Ball related attributes
+        self.x = 0  # x coordinate of the ball
+        self.y = 24  # y coordinate of the ball
         self.speed = (4, 4)
-        self.image = pygame.image.load(
-            "C:\\programming\\python\\programs\\Pygame_projects\\pythonPygameRasperryPiGameDevelopment\\LearningMaterials\\balls.png")
+        self.ball_image = pygame.image.load(
+            "C:\\programming\\python\\programs\\Pygame_projects\\Pong\\ball.png")
+        self.bat_image = pygame.image.load(
+            "C:\\programming\\python\\programs\\Pygame_projects\\Pong\\bat.png")
+
+        self.bat_rect = self.bat_image.get_rect()
+        self.bat_x = 400
+        self.bat_y = 50
+        self.bat_rect.topleft = (self.bat_x, self.bat_y)
+
+        # self.bat_speed = 3
+
     # These variables are called 'member-fields' and they are stored on a
     # per-object basis. This means that each object gets a separate
     # bit of memory for each field. In our ball class, we have 4 such memory
     # fields.
 
-    def update(self, gameTime):
+    def draw_ball(self, gameTime, surface):
+        surface.blit(self.ball_image, (self.x, self.y))
+        # Attributes and methods belonging to the current object are accessed
+        # through self dot(.) followed by the attribute and method.
+        # When calling the method,
+        # you don't have to pass in self, python will handle that for you.
+        # Self is only placed in the parameter list at the method declaration.
+
+    def update_ball(self, gameTime):
         sx = self.speed[0]
         sy = self.speed[1]
         self.x += sx
@@ -72,23 +91,34 @@ class Ball():
         # Whereas the data is different for each object, the code is not.
         # It is shared between all instances of the class.
         # This means that the same piece of code
-        # that updates a ball is used by all instances of the ball class.
+        # that updates a ball is used by all instances of the ball class.s
 
     def HasHitBrick(self, bricks):
         return False
     # This method will return a True if the ball has hit a brick. in our stub
     # code, we will always return False.
 
-    def HasHitBat(self, gameTime, SWSURFACE):
+    def HasHitBat(self, gameTime, SWSURFACE):  # Stud method
         return False
 
-    def draw(self, gameTime, surface):
-        surface.blit(self.image, (self.x, self.y))
-        # Attributes and methods belonging to the current object are accessed
-        # through self dot(.) followed by the attribute and method.
-        # When calling the method,
-        # you don't have to pass in self, python will handle that for you.
-        # Self is only placed in the parameter list at the method declaration.
+    def draw_bat(self, gameTime, surface):  # Turns out that this function is useless LOL
+        surface.blit(self.bat_image, self.bat_rect)
+
+    def update_bat(self, new_bat_x):
+        surface.blit(self.bat_image, (new_bat_x, 50))
+
+    def what_to_do_for_collision(self, mouse_x, mouse_y):
+        # if (self.bat_x - 8 >= self.x) and (self.x <= self.bat_x + 8) and (self.y <= self.bat_y + 11):
+            # self.y =
+            # self.speed[1] *= -1
+        # if (self.x <= 455) or (self.x >= 400):
+        #     print("x cross over")
+        #     if (self.y <= 61) or (self.y >= 50):
+        #         print("pass")
+        if (self.x <= mouse_x + 55) and (self.x >= mouse_x):
+            # print("x cross over")
+            if (self.y <= 61) and (self.y >= 50):
+                print("Yay")
 
 
 if __name__ == '__main__':
@@ -104,8 +134,22 @@ if __name__ == '__main__':
             if event.type == QUIT:
                 pygame.quit()
                 sys.quit()
+            if event.type == MOUSEMOTION:
+                mouse_x, mouse_y = event.pos
+                # print(mouse_x)  # [ Useful for ]
+                # print(mouse_y)  # [ Debugging ]
+                # print(ball.bat_x)
+
         surface.fill((0, 0, 0))
-        ball.draw(fps_clock, surface)  # Calling the draw() method
-        ball.update(fps_clock)
+
+        ball.update_ball(fps_clock)
+        ball.draw_ball(fps_clock, surface)  # Calling the draw() method
+
+        # ball.draw_bat(fps_clock, surface)
+        ball.update_bat(mouse_x)
+
+        ball.what_to_do_for_collision(mouse_x, mouse_y)
+        # print(ball.bat_rect.topleft)
+
         pygame.display.update()
         fps_clock.tick(60)
