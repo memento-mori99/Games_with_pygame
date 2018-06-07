@@ -46,6 +46,7 @@ class Ball():
         self.bat_y = 50
         self.bat_rect.topleft = (self.bat_x, self.bat_y)
 
+        self.points = 0
         # self.bat_speed = 3
 
     # These variables are called 'member-fields' and they are stored on a
@@ -118,7 +119,22 @@ class Ball():
         if (self.x <= mouse_x + 55) and (self.x >= mouse_x):
             # print("x cross over")
             if (self.y <= 61) and (self.y >= 50):
-                print("Yay")
+                # print("Yay")
+                sx = self.speed[0]
+                sy = self.speed[1]
+
+                # Don't include the below code !!!
+                # self.x += sx
+                # self.y += sy
+
+                sy *= -1
+                self.points += 1
+                print(self.points)
+                self.speed = (sx, sy)
+
+    def display_points(self, text):
+        font_properties = pygame.font.Font("freesansbold.ttf", size=150)
+        text_surface, text_rectangle = text_objects(text, font_properties)
 
 
 if __name__ == '__main__':

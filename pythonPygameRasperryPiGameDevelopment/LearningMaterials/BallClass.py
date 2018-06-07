@@ -32,6 +32,105 @@ from pygame.locals import *
 class Ball():
     # A class is defined using the class keyword.
     def __init__(self):
+        # A constructor is a special method that is called when an object is instantiated.
+        # Classes describe attributes and methods that describe and perform actions
+        # respectively of an abstract data structure.
+
+        # There are 5 principles of object design that must be adhered to :
+        # Single Responsibility         SOLID
+        # Open-closed knowledge         SOLID
+        # Liskov substitution           SOLID
+        # Interface segregation         SOLID
+        # Dependency Inversion          SOLID
+
+        ###################################################
+        # Single Responsibility
+        ###################################################
+        # Each class should have a single responsibility AND
+        # that responsibility should be contained within the
+        # class.
+
+        # In other words, you should have a ball class and its functionality
+        # should be wrapped within that class.
+        # You should not implement additional functionality, like a bat inside
+        # that same class.
+
+        # Create a separate class for each item.
+
+        # If you have lot's of space invaders, you only need to create 1
+        # invader class.
+        # But you can create an InvaderCollection class to contain all your
+        # invaders.
+
+        ###################################################
+        # Open-Closed Principle
+        ###################################################
+        # Your class should be thoroughly tested (hint : name == "main")
+        # and should be closed from further expansion.
+        # It's OK to go in and fix bugs, but your existing classes should't
+        # have additional functionality added to them because that will
+        # introduce new bugs.
+
+        # You can achieve this in 1 of 2 ways : extension OR composition
+        #   With extension, you are extending the base class and changing the
+        #   existing functionality of a method.
+        #       With composition, you encapsulate the old class inside a new
+        #       class and use the same interface to change how the caller
+        #       interacts with the internal class.
+        #           A class's interface is just the list of methods (the actions) that
+        #           be performed on the class.
+
+        ###################################################
+        # Liskov Substitution
+        ###################################################
+        # This is by far the trickiest of all the SOLID principles.
+        # The idea behind this principle is that when extending a class
+        # the subclass should act no different than the class it extends
+        # This is also known as the substitutability of a class.
+
+        ###################################################
+        # Interface Segregation
+        ###################################################
+        # Interface segregation means that you should code to the interface,
+        # rather than the implementation.
+        # There are other ways to achieve this in other OOP languages, but
+        # Python uses something callled duck typing.
+        # This means that Python will try and call a method on an object with
+        # the same name and parameters even if they are not the same object.
+            # Take this example program, we create 2 classes Duck and Person.
+            # Each class has a method called Quack().
+                # Watch what happens in the makeItQuack() function.
+                # The parameter that is passed gets its Quack() method called :
+        # class Duck():
+        #     def Quack(self):
+        #         print("Quack Duck !")
+        #
+        #
+        # class Person():
+        #     def Quack(self):
+        #         print("Quack Person !")
+        #
+        #
+        # def makeItQuack(self):
+        #     duck.Quack()
+        #
+        #
+        # duck = Duck()
+        # person = Person()
+        #
+        # makeItQuack(duck)
+        # makeItQuack(person)
+
+        ###################################################
+        # Dependency inversion
+        ###################################################
+        # Dependency inversion is a form of decoupling where higher-level modules
+        # (classes) should not depend on lower-level modules(classes).
+        # They should instead depend on abstractions.
+        # Second, abstractions should not depend on details.
+        # details should not depend on abstractions.
+        # Example :
+
         self.x = 0
         self.y = 24
         self.speed = (4, 4)
