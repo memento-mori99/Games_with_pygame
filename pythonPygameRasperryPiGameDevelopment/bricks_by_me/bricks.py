@@ -92,7 +92,8 @@ while True:
         ball_served = False
         bx, by = (24, ball_start_y)
         ball_rect.topleft = (bx, by)
-    if bx <= 0:
+    
+	if bx <= 0:
         bx = 0
         sx *= -1
 
