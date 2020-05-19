@@ -6,6 +6,9 @@ import math
 import time
 import random
 
+current_path = os.path.dirname(__file__)  # Where your .py file is located
+
+
 # Initilisation of all pygame components
 pygame.init()
 
@@ -30,9 +33,12 @@ fpsClock = pygame.time.Clock()
 pygame.display.set_caption('Desert_runner')
 surface = pygame.display.set_mode((display_width, display_height))
 
-desert_background = pygame.image.load('desert_cropped.png')
-skeleton_image = pygame.image.load('skeleton_severly_cropped.png')
-grass_block_image = pygame.image.load('dirt_block.png')
+desert_background = player_image = pygame.image.load(
+    os.path.join(current_path, 'desert_cropped.png'))
+skeleton_image = player_image = pygame.image.load(
+    os.path.join(current_path, 'skeleton_severly_cropped.png'))
+grass_block_image = player_image = pygame.image.load(
+    os.path.join(current_path, 'dirt_block.png'))
 
 # ================== Default coordinates ==================
 # skeleton_x = display_width + (-720)  # 800-720 = 80
